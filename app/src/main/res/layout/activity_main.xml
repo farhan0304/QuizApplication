@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="ques"
+            type="com.example.quizapplication.model.Question" />
+        <variable
+            name="handler"
+            type="com.example.quizapplication.views.MainViewHandler" />
+    </data>
+    
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient_color"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="76dp"
+            android:gravity="center"
+            android:text="Quiz Application"
+            android:textColor="#F7E8E7E7"
+            android:textSize="40dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/questionText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:paddingHorizontal="15dp"
+            android:paddingVertical="5dp"
+            android:text="@{ques.question}"
+            android:textColor="#F7E8E7E7"
+            android:textSize="20dp"
+            android:textFontWeight="500"
+            android:fontFamily="sans-serif"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/heading" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginHorizontal="10dp"
+            android:padding="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/questionText">
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:textColor="#F7E8E7E7"
+                android:textFontWeight="500"
+                android:fontFamily="sans-serif"
+                android:paddingHorizontal="10dp"
+
+                android:text="@{ques.option1}"
+                android:id="@+id/opt1"/>
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:textColor="#F7E8E7E7"
+                android:textFontWeight="500"
+                android:fontFamily="sans-serif"
+                android:paddingHorizontal="10dp"
+                android:text="@{ques.option2}"
+                android:id="@+id/opt2"/>
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:textColor="#F7E8E7E7"
+                android:textFontWeight="500"
+                android:fontFamily="sans-serif"
+                android:paddingHorizontal="10dp"
+                android:text="@{ques.option3}"
+                android:id="@+id/opt3"/>
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:textColor="#F7E8E7E7"
+                android:textFontWeight="500"
+                android:fontFamily="sans-serif"
+                android:paddingHorizontal="10dp"
+                android:text="@{ques.option4}"
+                android:id="@+id/opt4"/>
+
+        </RadioGroup>
+
+
+        <Button
+            android:id="@+id/btn"
+            android:onClick="@{handler::nextQuestionClick}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Next"
+            android:textSize="18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+
